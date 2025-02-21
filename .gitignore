@@ -171,3 +171,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 >>>>>>> c692769fb6fd8d0ac4977517427936fb3864eb03
+
+.streamlit

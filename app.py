@@ -13,6 +13,8 @@ st.set_page_config(
 
 # credenciais_json = os.environ.get("API_KEY")
 load_dotenv()
+
+api_key =st.secrets["api_key"]
 api_key = os.getenv("api_key")
 # API GOOGLE SHEETS
 credenciais = pygsheets.authorize(service_account_file=(
