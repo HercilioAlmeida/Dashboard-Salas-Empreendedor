@@ -12,6 +12,7 @@ st.set_page_config(
 # Usando o cache para armazenar os dados
 #@st.cache_data
 #def load_data():
+
 conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read(worksheet="dashboard")
 
@@ -22,14 +23,19 @@ df = pd.DataFrame(df)
 
 # Removendo a primeira coluna
 df = df.drop(df.columns[0], axis=1)
-    
-    #return df
+
+#return df
 
 # Carregando os dados
 #df = load_data()
 
 cidade = st.sidebar.selectbox("Escolha uma cidade:", [
     "Todas as cidades"] + df["Municípios"].unique().tolist())
+
+#st.sidebar.button("Atualizar Dashboard")
+
+if st.sidebar.button("Atualizar Dashboard"):
+    st.cache_data.clear()
 
 if cidade == "Todas as cidades":
     # Título centralizado do dashboard
