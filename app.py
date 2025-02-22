@@ -10,24 +10,23 @@ st.set_page_config(
     page_title="Dashboard Salas do Empreendedor", layout="wide")
 
 # Usando o cache para armazenar os dados
-@st.cache_data
-def load_data():
-    conn = st.connection("gsheets", type=GSheetsConnection)
-    df = conn.read(worksheet="dashboard")
+#@st.cache_data
+#def load_data():
+conn = st.connection("gsheets", type=GSheetsConnection)
+df = conn.read(worksheet="dashboard")
 
-    # criando data frame para o pandas poder ler
-    df.columns.values[4] = 'Sala'
-    df.columns.values[3] = 'LG Impl.'
-    df = pd.DataFrame(df)
+# criando data frame para o pandas poder ler
+df.columns.values[4] = 'Sala'
+df.columns.values[3] = 'LG Impl.'
+df = pd.DataFrame(df)
 
-    # Removendo a primeira coluna
-    df = df.drop(df.columns[0], axis=1)
-    df = df.drop(index=0)
+# Removendo a primeira coluna
+df = df.drop(df.columns[0], axis=1)
     
-    return df
+    #return df
 
 # Carregando os dados
-df = load_data()
+#df = load_data()
 
 cidade = st.sidebar.selectbox("Escolha uma cidade:", [
     "Todas as cidades"] + df["Municípios"].unique().tolist())
