@@ -3,6 +3,4 @@ pandas
 plotly
 matplotlib
 geopandas
-pygsheets
-python-dotenv
 git+https://github.com/streamlit/gsheets-connection

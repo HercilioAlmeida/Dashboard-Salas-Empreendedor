@@ -3,9 +3,6 @@ import pandas as pd
 import plotly.express as px
 import geopandas as gpd
 import matplotlib.pyplot as plt
-import pygsheets
-import os
-from dotenv import load_dotenv
 from streamlit_gsheets import GSheetsConnection
 
 # Configuração da página
